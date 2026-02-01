@@ -30,7 +30,7 @@ public class SecurityConfig {
 	        .authorizeHttpRequests(auth -> auth
 	            .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
 	            .requestMatchers("/api/login").permitAll()
-	            .requestMatchers("/h2-console/**").permitAll()
+	            .requestMatchers("/api/**").permitAll()
 //	            .anyRequest().authenticated()
 	            .anyRequest().permitAll()
 	        )
@@ -43,22 +43,6 @@ public class SecurityConfig {
 	    return http.build();
 	}
 
-//    @Bean
-//    public CorsConfigurationSource corsConfigurationSource() {
-//        CorsConfiguration config = new CorsConfiguration();
-//
-//        config.setAllowedOrigins(List.of("http://localhost:5173"));
-//        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-//        config.setAllowedHeaders(List.of("*"));
-//        config.setAllowCredentials(true);
-//
-//        UrlBasedCorsConfigurationSource source =
-//                new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/**", config);
-//
-//        return source;
-//    }
-	
 	
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
@@ -66,7 +50,8 @@ public class SecurityConfig {
 
 	    config.setAllowedOrigins(List.of(
 	        "http://localhost:5173",
-	        "https://user-details-fronted-bqhi.vercel.app"
+	        "https://*.vercel.app"
+//	        "https://user-details-fronted-bqhi.vercel.app"
 	    ));
 
 	    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
