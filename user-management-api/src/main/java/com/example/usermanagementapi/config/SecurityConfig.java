@@ -44,17 +44,41 @@ public class SecurityConfig {
 	}
 
 	
+//	@Bean
+//	public CorsConfigurationSource corsConfigurationSource() {
+//	    CorsConfiguration config = new CorsConfiguration();
+//
+//	    config.setAllowedOrigins(List.of(
+//	        "http://localhost:5173",
+//	        "https://*.vercel.app"
+////	        "https://user-details-fronted-bqhi.vercel.app"
+//	    ));
+//
+//	    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+//	    config.setAllowedHeaders(List.of("*"));
+//	    config.setAllowCredentials(true);
+//
+//	    UrlBasedCorsConfigurationSource source =
+//	            new UrlBasedCorsConfigurationSource();
+//	    source.registerCorsConfiguration("/**", config);
+//
+//	    return source;
+//	}
+	
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 	    CorsConfiguration config = new CorsConfiguration();
 
 	    config.setAllowedOrigins(List.of(
 	        "http://localhost:5173",
-	        "https://*.vercel.app"
-//	        "https://user-details-fronted-bqhi.vercel.app"
+	        "https://user-details-fronted-fz1c.vercel.app",
+	        "https://user-details-fronted-bqhi.vercel.app"
 	    ));
 
-	    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+	    config.setAllowedMethods(List.of(
+	        "GET", "POST", "PUT", "DELETE", "OPTIONS"
+	    ));
+
 	    config.setAllowedHeaders(List.of("*"));
 	    config.setAllowCredentials(true);
 
